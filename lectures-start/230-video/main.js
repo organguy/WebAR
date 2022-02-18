@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = await loadVideo("../../assets/videos/sintel/sintel.mp4");
     const texture = new THREE.VideoTexture(video);
 
-    const gemometry = new THREE.PlaneGeometry(1, 204/480);
+    const geometry = new THREE.PlaneGeometry(1, 204/480);
     const material = new THREE.MeshBasicMaterial({map: texture});
     const plane = new THREE.Mesh(geometry, material);
 
