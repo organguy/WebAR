@@ -2,6 +2,15 @@ import {loadGLTF, loadVideo} from "../../libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  let video = null;
+
+  const init = async() => {
+    video = await loadVideo("../../assets/videos/sintel/sintel.mp4");
+    video.play();
+    video.pause();
+  }
+
   const start = async() => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
@@ -9,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, scene, camera} = mindarThree;
 
-    const video = await loadVideo("../../assets/videos/sintel/sintel.mp4");
+
     const texture = new THREE.VideoTexture(video);
 
     const geometry = new THREE.PlaneGeometry(1, 204/480);
@@ -34,5 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
   }
-  start();
+  //start();
+
+  const button = document.createElement("button");
+  button.textContent = "Start";
+  button.addEventListener("click", start);
+
+  document.body.appendChild(button);
 });
