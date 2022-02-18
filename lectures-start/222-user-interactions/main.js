@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const raccoon = await loadGLTF('../../assets/models/musicband-raccoon/scene.gltf');
     raccoon.scene.scale.set(0.1, 0.1, 0.1);
     raccoon.scene.position.set(0, -0.4, 0);
-    raccoon.scene.userData.clickable = true;
 
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(raccoon.scene);
@@ -28,28 +27,29 @@ document.addEventListener('DOMContentLoaded', () => {
     audio.setBuffer(audioClip);
 
     document.body.addEventListener("click", (e) => {
-      const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-      const mouseY = -1 * ((e.clientY / window.innerHeight) * 2 - 1);
-      const mouse = new THREE.Vector2(mouseX, mouseY);
+        const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        const mouseY = -1 * ((e.clientY / window.innerHeight) * 2 - 1);
+        const mouse = new THREE.Vector2(mouseX, mouseY);
 
-      const raycaster = new THREE.Raycaster();
-      raycaster.setFromCamera(mouse, camera);
+        const raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera(mouse, camera);
 
-      const intersects = raycaster.intersectObjects(scene.children, true);
+        const intersects = raycaster.intersectObjects(scene.children, true);
 
-      if (intersects.length > 0) {
-	let o = intersects[0].object;
+        if(intersects.length > 0){
+            let o = intersects[0].object;
+            while (o.parent && !o.userData.clickable) {
+              o = o.parent;
+            }
 
-	while (o.parent && !o.userData.clickable) {
-	  o = o.parent;
-	}
+            if(o.userData.clickable){
+                if (o === raccoon.scene) {
+                  audio.play();
+                }
+            }
 
-	if (o.userData.clickable) {
-	  if (o === raccoon.scene) {
-	    audio.play();
-	  }
-	}
-      }
+        }
+
     });
 
     await mindarThree.start();
