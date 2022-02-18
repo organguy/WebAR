@@ -1,5 +1,5 @@
 import {loadGLTF, loadVideo} from "../../libs/loader.js";
-import {mockWithVideo} from '../../libs/camera-mock';
+import {mockWithVideo} from '../../libs/camera-mock.js';
 import {createChromaMaterial} from '../../libs/chroma-video.js';
 const THREE = window.MINDAR.IMAGE.THREE;
 
