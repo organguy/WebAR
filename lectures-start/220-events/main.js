@@ -19,6 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(raccoon.scene);
 
+    anchor.onTargetFound = () => {
+      console.log("on target found");
+    }
+    anchor.onTargetLost = () => {
+      console.log("on target lost");
+    }
+
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
