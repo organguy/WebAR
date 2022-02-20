@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
     scene.add(light);
 
-    //const model = await loadGLTF("./model/ps01001002_03.glb");
-    const model = await loadGLTF("../assets/models/musicband-raccoon/scene.gltf");
+    const model = await loadGLTF("./model/ps01001002_03.glb");
+    //const model = await loadGLTF("../assets/models/musicband-raccoon/scene.gltf");
     model.scene.scale.set(0.1, 0.1, 0.1);
     model.scene.position.set(0, -0.4, 0);
 
