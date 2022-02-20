@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
       container: document.body,
       //imageTargetSrc: './target/ps01001002_03.mind',
       //imageTargetSrc: './target/ps01001005_10.mind',
-      imageTargetSrc: './target/ps01001008_07.mind',
+      //imageTargetSrc: './target/ps01001008_07.mind',
+      imageTargetSrc: './target/ps01001010_02.mind',
       //imageTargetSrc: '../assets/targets/musicband.mind',
     });
     const {renderer, scene, camera} = mindarThree;
