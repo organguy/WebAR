@@ -37,8 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const action = mixer.clipAction(model.animations[0]);
     action.play();
 
+    const clock = new THREE.Clock();
+
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
+      const delta = clock.getDelta();
+      mixer.update(delta);
+
       renderer.render(scene, camera);
     });
   }
