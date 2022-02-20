@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
     scene.add(light);
 
-    const model = await loadGLTF("./model/ps01001002_03.glb");
-    //const model = await loadGLTF("./model/ps01001005_10.glb");
+    //const model = await loadGLTF("./model/ps01001002_03.glb");
+    const model = await loadGLTF("./model/ps01001005_10.glb");
     //const model = await loadGLTF("./model/ps01001008_07.glb");
     //const model = await loadGLTF("./model/ps01001010_02.glb");
     //const model = await loadGLTF("./model/ps01001011_07.glb");
