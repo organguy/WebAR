@@ -1,6 +1,8 @@
 import {loadGLTF} from "../libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
+const scaleVal = 0.001;
+
 document.addEventListener('DOMContentLoaded', () => {
   const start = async() => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const model = await loadGLTF("./model/ps01001002_03.glb");
     //const model = await loadGLTF("../assets/models/musicband-raccoon/scene.gltf");
-    model.scene.scale.set(0.01, 0.01, 0.01);
+    model.scene.scale.set(scaleVal, scaleVal, scaleVal);
     model.scene.position.set(0, -0.4, 0);
 
     const modelAnchor = mindarThree.addAnchor(0);
