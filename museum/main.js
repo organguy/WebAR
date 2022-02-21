@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const action = mixer.clipAction(model.animations[0]);
-    //action.setLoop(THREE.LoopOnce);
-    action.setLoop(THREE.LoopRepeat);
+    action.setLoop(THREE.LoopOnce);
+    //action.setLoop(THREE.LoopRepeat);
     action.play();
 
     const clock = new THREE.Clock();
