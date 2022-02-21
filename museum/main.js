@@ -34,15 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
     modelAnchor.group.add(model.scene);
 
     const mixer = new THREE.AnimationMixer(model.scene);
+    mixer.addEventListener('finished', function(e){
+      console.log('animation finish');
+    });
 
     const action = mixer.clipAction(model.animations[0]);
     action.setLoop(THREE.LoopOnce);
     //action.setLoop(THREE.LoopRepeat);
     action.play();
-
-    mixer.addEventListener('finished', function(e){
-      console.log('animation finish');
-    });
 
     const clock = new THREE.Clock();
 
@@ -54,5 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
   }
-  start();
+
+  Android.requestArCode();
+
+  fucntion responseArCode(arCode){
+    console.log(arcode);
+  }
+
+  //start();
 });
