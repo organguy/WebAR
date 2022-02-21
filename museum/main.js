@@ -5,13 +5,17 @@ const scaleVal = 0.001;
 
 //const scaleVal = 0.1;
 
-const responseArCode = (arCode) => {
+//const responseArCode = (arCode) => {
+//  console.log(arCode);
+//}
+
+function responseArCode(arCode){
   console.log(arCode);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  Android.requestArCode();  
+  Android.requestArCode();
 
   const start = async() => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
