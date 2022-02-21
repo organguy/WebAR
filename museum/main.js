@@ -25,53 +25,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const arCode = Android.requestArCode();
   console.log(arCode);
-  const start = async() => {
-    const mindarThree = new window.MINDAR.IMAGE.MindARThree({
-      container: document.body,
-      //imageTargetSrc: './target/ps01001002_03.mind',
-      //imageTargetSrc: './target/ps01001005_10.mind',
-      //imageTargetSrc: './target/ps01001008_07.mind',
-      imageTargetSrc: './target/ps01001010_02.mind',
-      //imageTargetSrc: './target/ps01001011_07.mind',
-      //imageTargetSrc: '../assets/targets/musicband.mind',
-    });
-    const {renderer, scene, camera} = mindarThree;
 
-    const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
-    scene.add(light);
+  const mindarThree = new window.MINDAR.IMAGE.MindARThree({
+    container: document.body,
+    //imageTargetSrc: './target/ps01001002_03.mind',
+    //imageTargetSrc: './target/ps01001005_10.mind',
+    //imageTargetSrc: './target/ps01001008_07.mind',
+    imageTargetSrc: './target/ps01001010_02.mind',
+    //imageTargetSrc: './target/ps01001011_07.mind',
+    //imageTargetSrc: '../assets/targets/musicband.mind',
+  });
+  const {renderer, scene, camera} = mindarThree;
 
-    const model = await loadGLTF("./model/ps01001002_03.glb");
-    //const model = await loadGLTF("./model/ps01001005_10.glb");
-    //const model = await loadGLTF("./model/ps01001008_07.glb");
-    //const model = await loadGLTF("./model/ps01001010_02.glb");
-    //const model = await loadGLTF("./model/ps01001011_07.glb");
-    //const model = await loadGLTF("../assets/models/musicband-raccoon/scene.gltf");
-    model.scene.scale.set(scaleVal, scaleVal, scaleVal);
-    model.scene.position.set(0, -0.4, 0);
+  const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
+  scene.add(light);
 
-    const modelAnchor = mindarThree.addAnchor(0);
-    modelAnchor.group.add(model.scene);
+  const model = await loadGLTF("./model/ps01001002_03.glb");
+  //const model = await loadGLTF("./model/ps01001005_10.glb");
+  //const model = await loadGLTF("./model/ps01001008_07.glb");
+  //const model = await loadGLTF("./model/ps01001010_02.glb");
+  //const model = await loadGLTF("./model/ps01001011_07.glb");
+  //const model = await loadGLTF("../assets/models/musicband-raccoon/scene.gltf");
+  model.scene.scale.set(scaleVal, scaleVal, scaleVal);
+  model.scene.position.set(0, -0.4, 0);
 
-    const mixer = new THREE.AnimationMixer(model.scene);
-    mixer.addEventListener('finished', function(e){
-      console.log('animation finish');
-    });
+  const modelAnchor = mindarThree.addAnchor(0);
+  modelAnchor.group.add(model.scene);
 
-    const action = mixer.clipAction(model.animations[0]);
-    action.setLoop(THREE.LoopOnce);
-    //action.setLoop(THREE.LoopRepeat);
-    action.play();
+  const mixer = new THREE.AnimationMixer(model.scene);
+  mixer.addEventListener('finished', function(e){
+    console.log('animation finish');
+  });
 
-    const clock = new THREE.Clock();
+  const action = mixer.clipAction(model.animations[0]);
+  action.setLoop(THREE.LoopOnce);
+  //action.setLoop(THREE.LoopRepeat);
+  action.play();
 
-    await mindarThree.start();
-    renderer.setAnimationLoop(() => {
-      const delta = clock.getDelta();
-      mixer.update(delta);
+  const clock = new THREE.Clock();
 
-      renderer.render(scene, camera);
-    });
-  }
+  await mindarThree.start();
+  renderer.setAnimationLoop(() => {
+    const delta = clock.getDelta();
+    mixer.update(delta);
+
+    renderer.render(scene, camera);
+  });
+
+
+  //const start = async() => {
+
+  //}
 
   //start();
 });
