@@ -6,6 +6,13 @@ const scaleVal = 0.001;
 //const scaleVal = 0.1;
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  Android.requestArCode();
+
+  const responseArCode = (arCode) => {
+    console.log(arCode);
+  }
+
   const start = async() => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
@@ -53,12 +60,5 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
   }
-
-  Android.requestArCode();
-
   //start();
 });
-
-function responseArCode(arCode){
-  console.log(arCode);
-}
