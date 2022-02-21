@@ -9,13 +9,13 @@ const scaleVal = 0.001;
 //  console.log(arCode);
 //}
 
-function responseArCode(arCode){
-  console.log(arCode);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 
   //Android.requestArCode();
+
+  const responseArCode = (arCode) => {
+    console.log(arCode);
+  }
 
   responseArCode(1123);
 
