@@ -15,7 +15,9 @@ function responseArCode(arCode){
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  Android.requestArCode();
+  //Android.requestArCode();
+
+  responseArCode(1123);
 
   const start = async() => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
