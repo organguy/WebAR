@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   Android.requestArCode();
 
-  fucntion responseArCode(arCode){
+  const responseArCode = (arcode) =>{
     console.log(arcode);
   }
 
