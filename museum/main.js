@@ -57,7 +57,7 @@ const start = async() => {
 //  console.log(arCode);
 //}
 
-function responseArCode(arCode){
+const responseArCode = (arCode) => {
   console.log(arCode);
   start();
 }
