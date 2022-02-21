@@ -5,13 +5,15 @@ const scaleVal = 0.001;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const arCode = Android.requestArCode();
-  //const targetPath = './target/' + arCode + '.mind';
-  const targetPath = './target/ps01001010_02.mind';
-  const modelPath = './model/' + arCode + '.glb';
-  //console.log(arCode);
+
 
   const start = async() => {
+
+    const arCode = await Android.requestArCode();
+    //const targetPath = './target/' + arCode + '.mind';
+    const targetPath = './target/ps01001010_02.mind';
+    const modelPath = './model/' + arCode + '.glb';
+
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
       imageTargetSrc: targetPath,
@@ -29,9 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     modelAnchor.group.add(model.scene);
 
     const mixer = new THREE.AnimationMixer(model.scene);
-    mixer.addEventListener('finished', function(e){
-      console.log('animation finish');
-    });
 
     const action = mixer.clipAction(model.animations[0]);
     action.setLoop(THREE.LoopOnce);
