@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //responseArCode(123456);
-
-  Android.requestArCode();
+responseArCode("e")
+  //Android.requestArCode();
 
 
   //start();
