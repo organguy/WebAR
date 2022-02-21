@@ -11,13 +11,11 @@ const scaleVal = 0.001;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  //Android.requestArCode();
-
   const responseArCode = (arCode) => {
     console.log(arCode);
   }
 
-  responseArCode(1123);
+  Android.requestArCode();
 
   const start = async() => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
