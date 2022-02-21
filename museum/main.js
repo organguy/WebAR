@@ -11,7 +11,7 @@ const scaleVal = 0.001;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const responseArCode = (arCode) => {
+  const responseArCode = async(arCode) => {
     console.log(arCode);
   }
 
