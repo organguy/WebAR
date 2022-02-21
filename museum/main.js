@@ -5,8 +5,6 @@ const scaleVal = 0.001;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
-
   const start = async() => {
 
     const arCode = await Android.requestArCode();
