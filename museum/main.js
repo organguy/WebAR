@@ -38,6 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     modelAnchor.group.add(model.scene);
     console.log('modelAnchor');
 
+    modelAnchor.onTargetFound = () => {
+      console.log("on target found");
+    }
+    modelAnchor.onTargetLost = () => {
+      console.log("on target lost");
+    }
+
     const mixer = new THREE.AnimationMixer(model.scene);
     console.log('mixer');
 
@@ -46,13 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //action.setLoop(THREE.LoopRepeat);
     action.play();
     console.log('action');
-
-    //modelAnchor.onTargetFound = () => {
-      //console.log("on target found");
-    //}
-    //modelAnchor.onTargetLost = () => {
-      //console.log("on target lost");
-    //}
 
     const clock = new THREE.Clock();
 
