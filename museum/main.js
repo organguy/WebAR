@@ -54,9 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const clock = new THREE.Clock();
 
-    await mindarThree.start();
-    //Android.sendState(STATE_TRACKING_START);
-    Android.requestArCode();
+    await mindarThree.start().then(Android.sendState(STATE_TRACKING_START));
 
     renderer.setAnimationLoop(() => {
 
