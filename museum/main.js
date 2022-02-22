@@ -47,12 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
     action.play();
     console.log('action');
 
-    modelAnchor.onTargetFound = () => {
-      console.log("on target found");
-    }
-    modelAnchor.onTargetLost = () => {
-      console.log("on target lost");
-    }
+    //modelAnchor.onTargetFound = () => {
+      //console.log("on target found");
+    //}
+    //modelAnchor.onTargetLost = () => {
+      //console.log("on target lost");
+    //}
 
     const clock = new THREE.Clock();
 
