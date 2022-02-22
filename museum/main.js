@@ -1,8 +1,8 @@
 import {loadGLTF} from "../libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
-let STATE_TRACKING_START = 1;
-let STATE_TRACKING_FINISH = 2;
+let STATE_TRACKING_START = '1';
+let STATE_TRACKING_FINISH = '2';
 
 const scaleVal = 0.001;
 var isTrackingFound = false;
