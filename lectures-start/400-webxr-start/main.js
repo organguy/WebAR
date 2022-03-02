@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       color: 0x00ff00,
     });
     const mesh = new THREE.Mesh(geometry, material);
-    mesh.position(0, 0, -0.3);
+    mesh.position.set(0, 0, -0.3);
     scene.add(mesh);
 
     const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
