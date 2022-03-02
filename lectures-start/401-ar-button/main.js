@@ -1,4 +1,5 @@
 import * as THREE from '../../libs/three.js-r132/build/three.module.js';
+import {ARButton} from '../../libs/three.js-r132/examples/jsm/webxr/ARButton.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const initialize = async() => {
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(renderer.domElement);
 
     // create AR object
-    const geometry = new THREE.BoxGeometry(0.06, 0.06, 0.06); 
+    const geometry = new THREE.BoxGeometry(0.06, 0.06, 0.06);
     const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
     const mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(0, 0, -0.3);
@@ -25,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
+
+    const arButton = ARButton.createButton(renderer, {optionalFeatures: ['dom-overlay'], domOverlay: {root: document.body}});
+    document.body.appendChild(arButton);
   }
 
   initialize();
